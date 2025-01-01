@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+
+    <script>
+        class CreateButton{
+            constructor (name){
+              this.button = document.createElement('button');
+              this.button.innerHTML = name;
+              document.body.appendChild(this.button);
+            }
+            set width(width){
+                this._width= width
+                this.button.style.width = this._width + 'px';
+            }
+            printWidth(){
+                this.button.click = function(){
+                    console.log(this.width);
+                }.bind(this);  //we are using bind here becausethe adeventlistner function dont have 
+                //access to the createButton instance's preperties 
+            }
+        };
+        const button1 = new CreateButton('hi there');
+        button1.width = 100;   //instead of creating a seperate function to set width setters help you directly set properties
+        button1.printWidth();
+
+
+        class GreenButton extends CreateButton{
+            f_onclick(fn){
+               this.button.onclick = function(){
+                   this.button.style.background = 'green';
+                   fn();
+               }.bind(this);
+            }
+        };
+        const greenButton = new GreenButton ('green button');
+        greenButton.f_onclick(()=>{
+            console.log("clicked");
+        });
+    </script>
+</body>
+</html>

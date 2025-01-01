@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <button id="num1" style="background-color:red;">clickMe</button>
+    <script>
+        function checkCount() {
+            let count = 0;
+
+            document.getElementById("num1").addEventListener("click", function countadd() {
+                function countLog() {
+                console.log("clicked",count++);
+                }
+            });
+        }
+        var numbutton = document.getElementById('num1')
+
+        numbutton.onclick = function(){
+            console.log('clicked');
+        }
+        checkCount();            
+    </script>
+
+</body>
+
+</html>
